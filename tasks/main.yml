@@ -1,0 +1,16 @@
+---
+
+- name: add authorized keys for root
+  ansible.posix.authorized_key:
+    user: root
+    state: present
+    key: '{{ item }}'
+  loop: "{{ ssh_keys_to_add }}"
+
+- name: remove authorized keys for root
+  ansible.posix.authorized_key:
+    user: root
+    state: absent
+    key: '{{ item }}'
+  loop: "{{ ssh_keys_to_remove }}"
+
