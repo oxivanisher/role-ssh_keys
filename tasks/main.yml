@@ -13,4 +13,3 @@
     state: absent
     key: '{{ item }}'
   loop: "{{ ssh_keys_to_remove }}"
-
