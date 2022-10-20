@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: ssh_keys
+  namespace: oxivanisher
   author: Marc Urben
   description: Deploy and remove SSH keys
   company: Thunderbluff
