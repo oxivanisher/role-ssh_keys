@@ -52,4 +52,5 @@ galaxy_info:
     - ssh
 
 dependencies:
-  - role: ansible.posix.authorized_key
+  []
+  # - role: ansible.posix.authorized_key
