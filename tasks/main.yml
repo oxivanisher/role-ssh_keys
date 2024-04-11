@@ -5,6 +5,8 @@
     state: present
     key: "{{ item }}"
   loop: "{{ ssh_keys_to_add }}"
+  become: true
+  become_user: root
 
 - name: Remove authorized keys
   ansible.posix.authorized_key:
@@ -12,3 +14,5 @@
     state: absent
     key: "{{ item }}"
   loop: "{{ ssh_keys_to_remove }}"
+  become: true
+  become_user: root
