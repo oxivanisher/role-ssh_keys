@@ -29,7 +29,7 @@ Example Playbook
 - name: SSH Keys
   hosts: servers
   roles:
-    - role: oxivanisher.ssh_keys
+    - role: oxivanisher.linux_base.ssh_keys
       tags:
         - basic_access
 ```
