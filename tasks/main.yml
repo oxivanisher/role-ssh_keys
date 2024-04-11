@@ -1,18 +1,17 @@
 ---
-- name: Add authorized keys
-  ansible.posix.authorized_key:
-    user: "{{ ssh_keys_user }}"
-    state: present
-    key: "{{ item }}"
-  loop: "{{ ssh_keys_to_add }}"
-  become: true
-  become_user: root
 
-- name: Remove authorized keys
-  ansible.posix.authorized_key:
-    user: "{{ ssh_keys_user }}"
-    state: absent
-    key: "{{ item }}"
-  loop: "{{ ssh_keys_to_remove }}"
-  become: true
-  become_user: root
+- name: Get user database
+  ansible.builtin.getent:
+    database: passwd
+
+- name: Add SSH keys to users
+  ansible.builtin.include_tasks: "add_ssh_keys.yml"
+  loop: "{{ ssh_keys_users_to_add_to }}"
+  loop_control:
+    loop_var: user
+
+- name: Remove SSH keys of users
+  ansible.builtin.include_tasks: "remove_ssh_keys.yml"
+  loop: "{{ ssh_keys_users_to_remove_from }}"
+  loop_control:
+    loop_var: user

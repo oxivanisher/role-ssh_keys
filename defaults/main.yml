@@ -1,4 +1,7 @@
 ---
-ssh_keys_user: root
+ssh_keys_users_to_add_to:
+  - root
 ssh_keys_to_add: []
+ssh_keys_users_to_remove_from:
+  - root
 ssh_keys_to_remove: []

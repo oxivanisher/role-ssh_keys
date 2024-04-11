@@ -1,0 +1,13 @@
+---
+- name: "Remove keys from user {{ user }}"
+  when: user in getent_passwd.keys()
+  block:
+
+    - name: Remove authorized key
+      ansible.posix.authorized_key:
+        user: "{{ user }}"
+        state: absent
+        key: "{{ item }}"
+      loop: "{{ ssh_keys_to_remove }}"
+      become: true
+      become_user: root

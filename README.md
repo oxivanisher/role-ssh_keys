@@ -1,7 +1,7 @@
 ssh_keys
 ========
 
-This role adds and/or removes ssh keys of a user.
+This role adds and/or removes SSH keys of users.
 
 Notes
 -----
@@ -16,11 +16,12 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
-| Name                | Comment                          | Default value |
-|---------------------|----------------------------------|---------------|
-| ssh_keys_user       | Which user will be configured    | `root`        |
-| ssh_keys_to_add     | A list of SSH keys to be present |               |
-| ssh_keys_to_remove  | A list of SSH keys to be absent  |               |
+| Name                          | Comment                                   | Default value |
+|-------------------------------|-------------------------------------------|---------------|
+| ssh_keys_to_add               | A list of SSH keys to be present          |               |
+| ssh_keys_users_to_add_to      | Which users the keys will be added        | `['root']`    |
+| ssh_keys_to_remove            | A list of SSH keys to be absent           |               |
+| ssh_keys_users_to_remove_from | Which users the keys will be removed from | `['root']`    |
 
 Example Playbook
 ----------------
