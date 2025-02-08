@@ -1,5 +1,6 @@
 ssh_keys
 ========
+[![Ansible Lint](https://github.com/oxivanisher/role-ssh_keys/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/oxivanisher/role-ssh_keys/actions/workflows/ansible-lint.yml)
 
 This role adds and/or removes SSH keys of users.
 
