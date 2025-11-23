@@ -1,6 +1,6 @@
 ---
 - name: "Remove keys from user {{ user }}"
-  when: user in getent_passwd.keys()
+  when: user in ansible_facts.getent_passwd.keys()
   block:
 
     - name: Remove authorized key
